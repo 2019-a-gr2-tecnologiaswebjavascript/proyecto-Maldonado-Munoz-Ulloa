@@ -12,6 +12,10 @@ module.exports = {
       type: 'string',
       required: true
     },
+    descripcionLocalizacion:{
+      type: 'string',
+      required: true
+    },
     latitudLocalizacion:{
       type: 'number',
       required: true
@@ -21,8 +25,8 @@ module.exports = {
       required: true
     },
     arregloBasureros:{
-      collection:basurero,
-      via:,
+      collection:'basurero',
+      via:'fkLocalizacion',
     }
 
 

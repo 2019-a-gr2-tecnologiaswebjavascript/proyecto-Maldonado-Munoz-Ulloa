@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc456e2-f85a-45b9-b66e-953675a21951" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trash-backend/api/controllers/BasureroController.js" beforeDir="false" afterPath="$PROJECT_DIR$/trash-backend/api/controllers/BasureroController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trash-backend/api/controllers/LocalizacionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/trash-backend/api/controllers/LocalizacionController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trash-backend/api/controllers/TipoBasuraController.js" beforeDir="false" afterPath="$PROJECT_DIR$/trash-backend/api/controllers/TipoBasuraController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trash-backend/api/models/Estado-basurero.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trash-backend/api/models/Estado_basurero.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trash-backend/api/models/EstadoBasurero.js" beforeDir="false" afterPath="$PROJECT_DIR$/trash-backend/api/models/EstadoBasurero.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trash-backend/api/models/Historico.js" beforeDir="false" afterPath="$PROJECT_DIR$/trash-backend/api/models/Historico.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trash-backend/api/models/Localizacion.js" beforeDir="false" afterPath="$PROJECT_DIR$/trash-backend/api/models/Localizacion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trash-backend/api/models/TipoBasura.js" beforeDir="false" afterPath="$PROJECT_DIR$/trash-backend/api/models/TipoBasura.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,11 +18,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trash-backend/api/models/Localizacion.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+            <state relative-caret-position="476">
+              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/trash-backend/api/models/TipoBasura.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trash-backend/api/models/EstadoBasurero.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trash-backend/api/models/Historico.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -44,7 +68,10 @@
         <option value="$PROJECT_DIR$/trash-backend/api/controllers/TipoBasuraController.js" />
         <option value="$PROJECT_DIR$/trash-backend/api/controllers/BasureroController.js" />
         <option value="$PROJECT_DIR$/trash-backend/api/controllers/LocalizacionController.js" />
+        <option value="$PROJECT_DIR$/trash-backend/api/models/Historico.js" />
         <option value="$PROJECT_DIR$/trash-backend/api/models/Localizacion.js" />
+        <option value="$PROJECT_DIR$/trash-backend/api/models/TipoBasura.js" />
+        <option value="$PROJECT_DIR$/trash-backend/api/models/EstadoBasurero.js" />
       </list>
     </option>
   </component>
@@ -136,12 +163,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563661650459</updated>
-      <workItem from="1563661652113" duration="1762000" />
+      <workItem from="1563661652113" duration="2439000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1762000" />
+    <option name="totallyTimeSpent" value="2439000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -212,10 +239,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/trash-backend/api/models/EstadoBasurero.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trash-backend/api/models/Historico.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trash-backend/api/models/Localizacion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        <state relative-caret-position="476">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trash-backend/api/models/TipoBasura.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
         </state>
       </provider>
     </entry>

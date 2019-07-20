@@ -15,8 +15,8 @@ module.exports = {
     },
 
     arregloTipoBasureros: {
-      collection:basurero,
-      via:,
+      collection:'basurero',
+      via:'fkEstadoBasurero',
     }
   },
 
