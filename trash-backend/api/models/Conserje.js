@@ -11,8 +11,7 @@ module.exports = {
 
     cedula_conserje:{
       type: 'string',
-      min: 10,
-      max: 10,
+      minLength: 10,
       required: true
     },
     nombre_conserje:{

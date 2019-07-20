@@ -49,7 +49,7 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
     adapter: 'sails-mysql',
-    url: 'mysql://gorky:12345678@localhost:32775/proyectojs',
+    url: 'mysql://root:root@localhost:32779/proyectojs',
 
   },
 

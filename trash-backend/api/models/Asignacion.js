@@ -9,20 +9,17 @@ module.exports = {
 
   attributes: {
 
-    fecha_asignacion:{
+    fecha_asignacion: {
       type: 'string',
-      required: true 
+      required: true
     },
-    fkConserje:{
+    fkConserje: {
       model: 'conserje',
       required: true
     },
-    fkBasurero:{
+    fkBasurero: {
       model: 'basurero',
       required: true
     }
-    
   },
-
 };
-

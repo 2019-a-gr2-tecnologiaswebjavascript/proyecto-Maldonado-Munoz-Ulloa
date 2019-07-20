@@ -11,8 +11,7 @@ module.exports = {
 
     tagBasurero:{
       type: 'string',
-      required: true,
-      max: 255
+      required: true
     },
     maxLlenoBasurero:{
       type: 'number',
@@ -32,7 +31,7 @@ module.exports = {
     },
     arregloAsignacion:{
       collection: 'asignacion',
-      via: 'fkAsignacion'
+      via: 'fkBasurero'
     },
     fkTipoBasura:{
       model: 'tipoBasura',
