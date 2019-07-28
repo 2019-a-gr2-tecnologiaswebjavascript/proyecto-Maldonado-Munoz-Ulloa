@@ -47,10 +47,9 @@ module.exports.datastores = {
     * 3. Then pass it in, along with a connection URL.                         *
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
-    ***************************************************************************/
+     ***************************************************************************/
     adapter: 'sails-mysql',
-    url: 'mysql://root:root@localhost:32769/proyectojs',
-
+    url: 'mysql://root:root@localhost:32775/proyectojs',
   },
 
 
