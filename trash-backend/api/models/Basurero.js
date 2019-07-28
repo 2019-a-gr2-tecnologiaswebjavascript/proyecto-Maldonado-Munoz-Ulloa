@@ -21,10 +21,6 @@ module.exports = {
       type: 'number',
       required: true,
     },
-    ubicacionBasurero:{
-      type: 'string',
-      required: true
-    },
     arregloHistorico:{
       collection: 'historico',
       via: 'fkBasurero'

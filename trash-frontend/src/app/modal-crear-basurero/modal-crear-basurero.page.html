@@ -6,6 +6,95 @@
 
 <ion-content>
 
-  
+  <ion-grid>
+    <form #formularioCrearEntrenador="ngForm"
+          (submit)="guardarBasurero()"
+    >
+
+      <ion-row>
+        <ion-item>
+          <ion-label>TAG:</ion-label>
+          <ion-input clearInput [(ngModel)]="nuevoBasurero.tagBasurero"
+                     required
+                     name="tagBasurero"></ion-input>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-item>
+          <ion-label>Máximo de llenado:</ion-label>
+          <ion-input clearInput [(ngModel)]="nuevoBasurero.maxLlenoBasurero"
+                     required
+                     type="number"
+                     name="maxLlenoBasurero"></ion-input>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-item>
+          <ion-label>Piso de ubicación:</ion-label>
+          <ion-input clearInput [(ngModel)]="nuevoBasurero.pisoBasurero"
+                     type="number"
+                     name="pisoBasurero"></ion-input>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-item >
+          <ion-label position="floating">Ubicación</ion-label>
+          <ion-select placeholder="Elije la ubicación "
+                      [(ngModel)]="nuevoBasurero.fkLocalizacion"
+                      name="fkLocalizacion"
+                      (ionChange)="actualizarUbicacion(nuevoBasurero.fkLocalizacion)">
+            <ion-select-option *ngFor = 'let locacion of localiaciones'
+                               required="true"
+                               value={{locacion.id}}>{{locacion.nombreLocalizacion}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-item >
+          <ion-label position="floating">Tipo basura</ion-label>
+          <ion-select
+                  (ionChange)="actualizarTipoBasura(nuevoBasurero.fkTipoBasura)"
+                  [(ngModel)]="nuevoBasurero.fkTipoBasura"
+                  name="fkTipoBasura"
+                  placeholder="Elije el tipo de basura"
+          >
+            <ion-select-option *ngFor = 'let tipo of tiposBasura'
+                               value={{tipo.id}}>{{tipo.nombreTipoBasura}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-item >
+          <ion-label position="floating">Tipo basura</ion-label>
+          <ion-select
+                  (ionChange)="actualizarEstadoBasurero(nuevoBasurero.fkEstadoBasurero)"
+                  [(ngModel)]="nuevoBasurero.fkEstadoBasurero"
+                  name="fkEstadoBasurero"
+                  placeholder="Elije el estado del basurero ">
+            <ion-select-option *ngFor = 'let estado of estadosBasurero'
+                               value={{estado.id}}>{{estado.nombreEstado}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+
+      <ion-row class="botones">
+        <ion-col>
+          <ion-button type="submit"
+                      color="success"
+                      [disabled]="formularioCrearEntrenador.invalid"
+                      expand="block" >Guardar</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button  color="success" expand="block" (click)="dismiss()">Cancelar</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </ion-grid>
 
 </ion-content>

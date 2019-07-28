@@ -22,7 +22,7 @@ export class BasureroPage implements OnInit {
       component: ModalCrearBasureroPage
     });
     modalCrearBasurero.onDidDismiss().then(() => {
-          //this.listarEntrenadores();
+          this.listarBasureros();
         }
     );
     return modalCrearBasurero.present();

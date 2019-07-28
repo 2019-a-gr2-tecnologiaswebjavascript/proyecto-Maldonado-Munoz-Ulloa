@@ -12,6 +12,9 @@ import {ModalCrearBasureroPageModule} from "./modal-crear-basurero/modal-crear-b
 import {BasureroHttpService} from "./servicios/http/basurero-http.service";
 import {HttpClientModule} from "@angular/common/http";
 import {ModalEditarBasureroPageModule} from "./modal-editar-basurero/modal-editar-basurero.module";
+import {LocalizacionHttpService} from "./servicios/http/ubicacion-http.service";
+import {TipoBasuraHttpService} from "./servicios/http/tipo-basura-http.service";
+import {EstadoBasureroHttpService} from "./servicios/http/estado-basurero-http.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +28,9 @@ import {ModalEditarBasureroPageModule} from "./modal-editar-basurero/modal-edita
     StatusBar,
     SplashScreen,
     BasureroHttpService,
+    LocalizacionHttpService,
+    TipoBasuraHttpService,
+    EstadoBasureroHttpService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
