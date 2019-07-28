@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ModalController} from "@ionic/angular";
 import {ModalCrearBasureroPage} from "../modal-crear-basurero/modal-crear-basurero.page";
 import {BasureroHttpService} from "../servicios/http/basurero-http.service";
+import {ModalEditarBasureroPage} from "../modal-editar-basurero/modal-editar-basurero.page";
 
 @Component({
   selector: 'app-basurero',
@@ -35,9 +36,16 @@ export class BasureroPage implements OnInit {
     })
   }
 
-  editarBasurero(basurero){
-
+  async editarBasurero(basurero){
+    const modalEditarBasurero = await this._modalController.create({
+      component:ModalEditarBasureroPage,
+      componentProps: {
+        basurero
+      }
+    });
+    return await modalEditarBasurero.present();
   }
+
   eliminarBasurero(id:number){
 
   }

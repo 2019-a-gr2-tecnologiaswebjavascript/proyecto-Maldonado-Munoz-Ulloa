@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar basurero</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="separador"></div>
+
+  <form #formularioEditarEntrenador="ngForm"
+        novalidate
+        (submit)="actualizarBasurero()">
+    <ion-item>
+      <ion-label>TAG:</ion-label>
+      <ion-input disabled [(ngModel)]="basurero.tagBasurero"
+                 (change)="cambio()"
+                 name="tagBasurero"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ubicación:</ion-label>
+      <ion-input clearInput [(ngModel)]="basurero.ubicacionBasurero"
+                 (change)="cambio()"
+                 name="ubicacionBasurero"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Piso:</ion-label>
+      <ion-input clearInput [(ngModel)]="basurero.pisoBasurero"
+                 (change)="cambio()"
+                 name="pisoBasurero"></ion-input>
+    </ion-item>
+
+    <ion-row class="botones">
+      <ion-col>
+        <ion-button type="submit"
+                    color="success"
+                    [disabled]="!formularioCambio"
+                    expand="block" >Guardar</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button  color="success" expand="block" (click)="dismiss()">Cancelar</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</ion-content>
+

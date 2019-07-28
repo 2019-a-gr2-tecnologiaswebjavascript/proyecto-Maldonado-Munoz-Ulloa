@@ -11,11 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 import {ModalCrearBasureroPageModule} from "./modal-crear-basurero/modal-crear-basurero.module";
 import {BasureroHttpService} from "./servicios/http/basurero-http.service";
 import {HttpClientModule} from "@angular/common/http";
+import {ModalEditarBasureroPageModule} from "./modal-editar-basurero/modal-editar-basurero.module";
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ModalCrearBasureroPageModule,HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(),
+    AppRoutingModule,
+    ModalCrearBasureroPageModule,
+    ModalEditarBasureroPageModule,
+    HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
