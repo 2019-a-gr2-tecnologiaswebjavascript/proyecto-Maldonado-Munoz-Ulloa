@@ -1,63 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  GoogleMapOptions, Environment, Marker,
+  GoogleMap, GoogleMapOptions, GoogleMaps, GoogleMapsEvent,
 } from '@ionic-native/google-maps';
-
+import {error} from "selenium-webdriver";
 @Component({
   selector: 'app-mapa',
   templateUrl: './mapa.page.html',
   styleUrls: ['./mapa.page.scss'],
 })
-export class MapaPage implements OnInit {
-
-
-  constructor() { }
+export class MapaPage {
 
   map: GoogleMap;
 
-  ionViewDidLoad() {
-    this.loadMap();
+  constructor(private googleMaps:GoogleMaps){
+
   }
 
-  loadMap() {
+  ionViewDidLoad(){
+    this.cargarMapa();
+  }
 
-    // This code is necessary for browser
-        Environment.setEnv({
-          'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyA9uZhZELdy9RoD0AuZ8wgtvLP_JVYzSDM',
-          'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyA9uZhZELdy9RoD0AuZ8wgtvLP_JVYzSDM'
-        });
-
-    let mapOptions: GoogleMapOptions = {
-      camera: {
-        target: {
-          lat: -0.210058,
-          lng: -78.488498
+  cargarMapa(){
+    let opcionesMapa :GoogleMapOptions={
+      mapType:"MAP_TYPE_SATELLITE",
+      controls:{
+        compass:true,
+        myLocationButton: true,
+        zoom: true,
+      },
+      camera:{
+        target:{
+          lat: 43.0234,
+          lng: 89.2342,
         },
-        zoom: 18,
-        tilt: 30
+        zoom:10
       }
-    };
+    }
 
-    this.map = GoogleMaps.create('map_canvas', mapOptions);
-
-    let marker: Marker = this.map.addMarkerSync({
-      title: 'Escuela Politécnica Nacional',
-      icon: '',
-      animation: 'DROP',
-      position: {
-        lat: 43.0741904,
-        lng: -89.3809802
-      }
-    });
-    marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-      alert('clicked');
-    });
-  }
-  ngOnInit() {
-    this.loadMap();
+    this.map = this.googleMaps.create('map_canvas',opcionesMapa);
+    this.map.one(GoogleMapsEvent.MAP_READY).then(
+        (resultado)=>{
+          console.log('mapa Listo');
+        }
+    ).catch((error)=> {
+      console.log("error ",error);
+    })
   }
 
 }

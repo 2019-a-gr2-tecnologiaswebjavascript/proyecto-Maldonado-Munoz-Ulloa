@@ -15,7 +15,7 @@ import {ModalEditarBasureroPageModule} from "./modal-editar-basurero/modal-edita
 import {LocalizacionHttpService} from "./servicios/http/ubicacion-http.service";
 import {TipoBasuraHttpService} from "./servicios/http/tipo-basura-http.service";
 import {EstadoBasureroHttpService} from "./servicios/http/estado-basurero-http.service";
-import {GoogleMap, GoogleMaps} from "@ionic-native/google-maps";
+import { GoogleMaps} from "@ionic-native/google-maps";
 
 @NgModule({
   declarations: [AppComponent],
