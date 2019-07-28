@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'basurero', loadChildren: './basurero/basurero.module#BasureroPageModule' },
   { path: 'modal-crear-basurero', loadChildren: './modal-crear-basurero/modal-crear-basurero.module#ModalCrearBasureroPageModule' },
   { path: 'modal-editar-basurero', loadChildren: './modal-editar-basurero/modal-editar-basurero.module#ModalEditarBasureroPageModule' },
+  { path: 'mapa', loadChildren: './mapa/mapa.module#MapaPageModule' },
 ];
 
 @NgModule({

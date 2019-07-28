@@ -25,7 +25,7 @@ module.exports = {
     arregloAsignacion:{
       collection: 'asignacion',
       via: 'fkConserje'
-    }
+    },
   },
 
 };

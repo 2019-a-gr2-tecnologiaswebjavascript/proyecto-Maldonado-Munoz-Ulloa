@@ -40,9 +40,7 @@ module.exports = {
     fkLocalizacion:{
       model: 'localizacion',
       required:true
-    }
-
-   
+    },
   },
 
 };

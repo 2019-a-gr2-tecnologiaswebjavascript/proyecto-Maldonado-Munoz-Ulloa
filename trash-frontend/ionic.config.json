@@ -1,5 +1,7 @@
 {
   "name": "trash-frontend",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
