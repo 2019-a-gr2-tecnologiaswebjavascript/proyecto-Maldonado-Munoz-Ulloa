@@ -4,7 +4,7 @@ import {map} from 'rxjs/operators';
 
 export class HttpSailsPrincipal<ClaseEntidad> {
 
-    protected url = 'http://localhost:1337';
+    protected url = 'http://192.168.100.99:1337';
     protected modelo = '';
 
     constructor(protected readonly httpClient: HttpClient, url: string, modelo: string) {
