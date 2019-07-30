@@ -16,6 +16,7 @@ import {LocalizacionHttpService} from "./servicios/http/ubicacion-http.service";
 import {TipoBasuraHttpService} from "./servicios/http/tipo-basura-http.service";
 import {EstadoBasureroHttpService} from "./servicios/http/estado-basurero-http.service";
 import { GoogleMaps} from "@ionic-native/google-maps";
+import {MapaPageModule} from "./mapa/mapa.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { GoogleMaps} from "@ionic-native/google-maps";
     AppRoutingModule,
     ModalCrearBasureroPageModule,
     ModalEditarBasureroPageModule,
+    MapaPageModule,
     HttpClientModule],
   providers: [
     StatusBar,

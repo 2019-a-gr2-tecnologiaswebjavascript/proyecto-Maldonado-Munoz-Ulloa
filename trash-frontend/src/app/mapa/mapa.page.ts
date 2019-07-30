@@ -1,50 +1,103 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
-  GoogleMap, GoogleMapOptions, GoogleMaps, GoogleMapsEvent,
+  GoogleMaps,
+  GoogleMap,
+  GoogleMapsEvent,
+  GoogleMapOptions, Environment, Marker,
 } from '@ionic-native/google-maps';
-import {error} from "selenium-webdriver";
+import {BasureroHttpService} from "../servicios/http/basurero-http.service";
+import {ToastController} from "@ionic/angular";
+
 @Component({
   selector: 'app-mapa',
   templateUrl: './mapa.page.html',
   styleUrls: ['./mapa.page.scss'],
 })
-export class MapaPage {
+export class MapaPage implements OnInit {
+
+
+  basureros: any;
+  constructor(private readonly _BasureroHttpService:BasureroHttpService, private readonly _toastController:ToastController) { }
 
   map: GoogleMap;
 
-  constructor(private googleMaps:GoogleMaps){
-
+  ionViewDidLoad() {
+    this.loadMap();
   }
 
-  ionViewDidLoad(){
-    this.cargarMapa();
+  listarBasureros() {
+    const $basureros = this._BasureroHttpService.buscarTodos();
+    $basureros.subscribe((datos) => {
+      this.basureros = datos;
+      this.basureros.forEach((basurero) =>
+          this.anadirMarker(basurero.tagBasurero,basurero.fkEstadoBasurero.nombreEstado,basurero.fkLocalizacion));
+
+    })
   }
 
-  cargarMapa(){
-    let opcionesMapa :GoogleMapOptions={
-      mapType:"MAP_TYPE_SATELLITE",
-      controls:{
-        compass:true,
-        myLocationButton: true,
-        zoom: true,
-      },
-      camera:{
-        target:{
-          lat: 43.0234,
-          lng: 89.2342,
+  loadMap() {
+
+    // This code is necessary for browser
+    Environment.setEnv({
+      'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyBCWLLkNhv7ecVJSs1EFkSA_HXaGSa-Ris',
+      'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyBCWLLkNhv7ecVJSs1EFkSA_HXaGSa-Ris'
+    });
+
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+        target: {
+          lat: -0.210058,
+          lng: -78.488498
         },
-        zoom:10
+        zoom: 18,
+        tilt: 30
       }
+    };
+
+    this.map = GoogleMaps.create('map_canvas', mapOptions);
+  }
+
+  anadirMarker(tagBasurero,estado,localizacion){
+
+    let url='';
+    if(estado==='Lleno'){
+      url = './../../assets/basurero-lleno.svg'
+    }else{
+      url = './../../assets/basurero-vacio.svg'
     }
 
-    this.map = this.googleMaps.create('map_canvas',opcionesMapa);
-    this.map.one(GoogleMapsEvent.MAP_READY).then(
-        (resultado)=>{
-          console.log('mapa Listo');
+    let marker: Marker = this.map.addMarkerSync({
+      title: tagBasurero,
+      icon:{
+        url:url,
+        size: {
+          width: 32,
+          height: 24
         }
-    ).catch((error)=> {
-      console.log("error ",error);
-    })
+      },
+      animation: 'DROP',
+      position: {
+        lat: localizacion.latitudLocalizacion,
+        lng: localizacion.longitudLocalizacion
+      }
+    });
+    marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+      this.presentToast(`El basurero ${tagBasurero} esta ${estado.toLowerCase()}`)
+    });
+
+  }
+
+  async presentToast(mensaje) {
+    const toast = await this._toastController.create({
+      message: mensaje,
+      duration: 1000
+    });
+    toast.present();
+  }
+
+  ngOnInit() {
+    this.listarBasureros();
+    this.loadMap();
   }
 
 }
