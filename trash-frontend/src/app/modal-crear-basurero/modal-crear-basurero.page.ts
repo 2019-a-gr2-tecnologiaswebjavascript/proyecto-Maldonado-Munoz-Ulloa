@@ -94,10 +94,10 @@ export class ModalCrearBasureroPage implements OnInit {
     console.log(this.nuevoBasurero);
     const $guardarBasurero = this._basureroHttpService.crear(this.nuevoBasurero);
     $guardarBasurero.subscribe((value)=>{
-      this.presentToast('Se creó el entrenador');
+      this.presentToast('Se creó el basurero');
       this.dismiss();
     }, (error) => {
-      this.presentToast('Existió un problema al crear el entrenador');
+      this.presentToast('Existió un problema al crear el basurero');
     });
   }
   ngOnInit() {

@@ -48,6 +48,13 @@ export class BasureroPage implements OnInit {
 
   eliminarBasurero(id:number){
 
+    const $basureros = this._BasureroHttpService.borrar(id);
+    $basureros.subscribe(((value) => {
+      this.listarBasureros();
+    }),(error)=>{
+      console.log("error ",error);
+    });
+
   }
 
 
