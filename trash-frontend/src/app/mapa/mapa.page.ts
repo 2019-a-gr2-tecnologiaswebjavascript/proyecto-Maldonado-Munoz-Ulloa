@@ -1,50 +1,63 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
-  GoogleMap, GoogleMapOptions, GoogleMaps, GoogleMapsEvent,
+  GoogleMaps,
+  GoogleMap,
+  GoogleMapsEvent,
+  GoogleMapOptions, Environment, Marker,
 } from '@ionic-native/google-maps';
-import {error} from "selenium-webdriver";
+
 @Component({
   selector: 'app-mapa',
   templateUrl: './mapa.page.html',
   styleUrls: ['./mapa.page.scss'],
 })
-export class MapaPage {
+export class MapaPage implements OnInit {
+
+
+  constructor() { }
 
   map: GoogleMap;
 
-  constructor(private googleMaps:GoogleMaps){
-
+  ionViewDidLoad() {
+    this.loadMap();
   }
 
-  ionViewDidLoad(){
-    this.cargarMapa();
-  }
+  loadMap() {
 
-  cargarMapa(){
-    let opcionesMapa :GoogleMapOptions={
-      mapType:"MAP_TYPE_SATELLITE",
-      controls:{
-        compass:true,
-        myLocationButton: true,
-        zoom: true,
-      },
-      camera:{
-        target:{
-          lat: 43.0234,
-          lng: 89.2342,
+    // This code is necessary for browser
+    Environment.setEnv({
+      'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyAvR9WTuQaGy17JR6H05iD5NhnZqm7dX8Y',
+      'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyAvR9WTuQaGy17JR6H05iD5NhnZqm7dX8Y'
+    });
+
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+        target: {
+          lat: -0.210058,
+          lng: -78.488498
         },
-        zoom:10
+        zoom: 18,
+        tilt: 30
       }
-    }
+    };
 
-    this.map = this.googleMaps.create('map_canvas',opcionesMapa);
-    this.map.one(GoogleMapsEvent.MAP_READY).then(
-        (resultado)=>{
-          console.log('mapa Listo');
-        }
-    ).catch((error)=> {
-      console.log("error ",error);
-    })
+    this.map = GoogleMaps.create('map_canvas', mapOptions);
+
+    let marker: Marker = this.map.addMarkerSync({
+      title: 'Escuela Politécnica Nacional',
+      icon: '',
+      animation: 'DROP',
+      position: {
+        lat: 43.0741904,
+        lng: -89.3809802
+      }
+    });
+    marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+      alert('clicked');
+    });
+  }
+  ngOnInit() {
+    this.loadMap();
   }
 
 }
